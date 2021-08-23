@@ -1,0 +1,41 @@
+<!--[] shows property binding-->
+<!--{{}} shows string interpolation-->
+<!--() shows event binding-->
+<!--[(ngModel)] is an example of twoWay Data binding-->
+
+
+<!--pass data in event binding-->
+<!--simple databinding-->
+<!--<input type="text" name="text-input" class="form-control" (input)="onUpdateServerName($event)">-->
+
+<!--two way data binding-->
+<input type="text" name="text-input" class="form-control" [(ngModel)]="serverName">
+<!--<p>{{serverName}}</p>-->
+
+
+<!--property binding works with the attribute and assign some value to the attribute which is already present in the TS file-->
+<button class="btn btn-success" [disabled]="!isNewServerPossible" (click)="onCreatedServer()">Add Servers</button>
+
+<!--string interpolation vs property Binding-->
+<!--<p [innerText]="isNewServerPossible"></p>-->
+<!--<p>{{isNewServerPossible}}</p>-->
+<!--try to user string interpolation when u are required to print something and use property binding when you are required to change attribute property-->
+
+<!--<p>{{serverCreationStatus}}</p>-->
+<br><br>
+
+<!--STRUCTURAL DIRECTIVE-->
+<!--conditionally view server creation when we create server using ngif directive-->
+<!--between the quotation mark there should be true and false return thing.-->
+<!--also ngIf is a structural directive which lets us add which never existed and remove already existing-->
+<p *ngIf="isServerCreated">Server was Created and Server Name is: {{serverName}}</p>
+
+<!--also doing else in the ngTemplate-->
+<!--<p *ngIf="isServerCreated; else noServe">Server was Created and Server Name is: {{serverName}}</p>-->
+<!--<ng-template #noServe>-->
+<!--  <p>No server was Created!!</p>-->
+<!--</ng-template>-->
+
+<br>
+<br>
+<app-servers *ngFor="let server of servers"></app-servers>

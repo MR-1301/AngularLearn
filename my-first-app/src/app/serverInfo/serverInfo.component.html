@@ -1,0 +1,10 @@
+<!--String Interpolation requires a string in the end as a output!!-->
+
+<!--using Attribute Directive-->
+<!--takes javascript object in quotation mark.-->
+<!--  ngClass objects are key value pair js objects key is class name which we should attach and-->
+<p
+  [ngStyle]="{backgroundColor:getColor()}"
+  [ngClass]="{online:serverStatus==='online'}">
+  {{'Server'}} has ID {{serverId}} is {{getServerStatus()}}
+</p>
